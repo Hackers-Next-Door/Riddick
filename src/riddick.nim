@@ -4,13 +4,24 @@ echo "|====== Riddick ======|"
 
 let path = "examples/dictionary.txt"
 
+proc normalDic(dictionaryPath: string) =
+    for line in lines dictionaryPath:
+        echo line
+
+
 proc addYears(dictionaryPath: string) =
     for line in lines dictionaryPath:
-        echo line.toUpper , "2002"
-        echo line , "2022"
+        for i in 2000..2023:
+            echo line , i
 
-addYears(path)
+proc upperCase(dictionaryPath: string) =
+    for line in lines dictionaryPath:
+        echo line.toUpper
 
-for line in lines path:
-    echo line.toUpper[0]
-    echo line
+
+proc main() =
+    normalDic(path)
+    addYears(path)
+    upperCase(path)
+
+main()
