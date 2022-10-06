@@ -19,9 +19,16 @@ proc upperCase(dictionaryPath: string) =
         echo line.toUpper
 
 
+proc upperOneByOne(dictionaryPath: string) =
+    for line in lines dictionaryPath:
+        for index in 0 .. (line.len - 1):
+            echo line[0 .. (index - 1)], ($line[index]).toUpper, line[(index+1) .. (line.len - 1)]
+
+
 proc main() =
     normalDic(path)
     addYears(path)
     upperCase(path)
+    upperOneByOne(path)
 
 main()
